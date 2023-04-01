@@ -9,6 +9,7 @@ set_seed(0)
 
 # Komponenty sieci
 model = Sequential()
+# Funkcje aktywacji - możliwe: activation = linear / relu / sigmoid / tanh / softmax
 model.add(Dense(4, input_shape=[1], activation="linear"))
 model.add(Dense(2, activation="linear"))
 model.add(Dense(1))
