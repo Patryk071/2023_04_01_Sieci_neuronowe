@@ -5,7 +5,7 @@ import plotly.express as px
 np.set_printoptions(precision=6)
 
 
-#ReLU FUNKCJA
+#ReLU FUNKCJA -----------------------------------------
 print('ReLu Funkcja')
 def max_relu(x):
     return max(0, x)
@@ -29,7 +29,7 @@ print(df.head())
 px.line(df, x='data', y='max_relu_data', width=700, height=400, title='ReLU_function').show()
 
 
-#Sigmoid FUNKCJA
+#Sigmoid FUNKCJA -----------------------------------------
 print('SIGMOID Funkcja')
 
 def sigmoid(x):
@@ -50,7 +50,7 @@ print(df.head())
 
 px.line(df, x='data', y='sigmoid_data', width=700, height=400, title='Sigmoid Function').show()
 
-#Tanh FUNKCJA
+#Tanh FUNKCJA -----------------------------------------
 print('TANH Funckcja')
 def tanh(x):
     return (np.exp(x) - np.exp(-x)) / (np.exp(x) + np.exp(-x))
@@ -66,3 +66,17 @@ df = pd.DataFrame({'data': data, 'tanh_data': tanh_data})
 print(df.head(100))
 
 px.line(df, x='data', y='tanh_data', width=700, height=400, title='Tanh Function').show()
+
+#Softmax FUNKCJA -----------------------------------------
+print('Softmax Funkcja')
+def softmax(x):
+    e_x = np.exp(x)
+    denominator = np.sum(e_x, axis=1)
+    denominator = denominator[:, np.newaxis]
+    return e_x / denominator
+
+data = np.random.randn(4,5)
+print(data)
+
+result = softmax(data)
+print(result)
